@@ -27,6 +27,10 @@ void Game::run() {
 		//Update
 		simulation.updateAll(trackPhysic);
 
+		if (simulation.isGenerationDead()) {
+			simulation.nextGeneration();
+		};
+
 		//Draw
 		window.clear();
 		trackVisual.draw(window);
