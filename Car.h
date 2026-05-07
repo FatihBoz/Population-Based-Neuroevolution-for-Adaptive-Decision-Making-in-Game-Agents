@@ -18,7 +18,7 @@ private:
 	int framesAlive;
 
 	//Sensor data
-	float maxRayDistance = 150.0f;
+	float maxRayDistance = 250.0f;
 	std::vector<float> rayAngles = { -90.0f , -45.0f, 0.0f, 45.0f, 90.0f };
 
 	std::vector<sf::Vector2f> rayHitPoints; //for visual debugging

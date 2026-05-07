@@ -11,7 +11,7 @@ Game::Game()
 void Game::run() {
 
 	window.setFramerateLimit(60);
-	simulation.startNewGeneration(5);
+	simulation.startNewGeneration(10);
 
 	while (window.isOpen()) {
 
@@ -24,12 +24,15 @@ void Game::run() {
 		}
 
 
-		//Update
-		simulation.updateAll(trackPhysic);
 
-		if (simulation.isGenerationDead()) {
-			simulation.nextGeneration();
-		};
+		int simulationSpeed = 3;
+		for (int i = 0; i < simulationSpeed; ++i) {
+			simulation.updateAll(trackPhysic);
+
+			if (simulation.isGenerationDead()) {
+				simulation.nextGeneration();
+			}
+		}
 
 		//Draw
 		window.clear();

@@ -13,7 +13,7 @@ void Simulation::startNewGeneration(int carCount) {
 	cars.clear();
 
 	for (int i = 0; i < carCount; ++i) {
-		cars.push_back(Car(carTexture, sf::Vector2f(centerStartPosition.x, centerStartPosition.y + (32 * i))));
+		cars.push_back(Car(carTexture, sf::Vector2f(centerStartPosition.x, centerStartPosition.y)));
 	}
 }
 
@@ -61,7 +61,7 @@ void Simulation::nextGeneration() {
     cars.clear();
 
     for (int i = 0; i < popSize; ++i) {
-        Car newCar(carTexture, sf::Vector2f(centerStartPosition.x, centerStartPosition.y + (32 * i)));
+        Car newCar(carTexture, sf::Vector2f(centerStartPosition.x, centerStartPosition.y));
 
         if (i == 0) {
             //First car is the same as champion
@@ -69,7 +69,8 @@ void Simulation::nextGeneration() {
         }
         else {
             NeuralNetwork mutatedBrain = bestBrain;
-            mutatedBrain.mutate(0.1f);
+            mutatedBrain.reseed();
+            mutatedBrain.mutate(0.05f);
             newCar.brain = mutatedBrain;
         }
 

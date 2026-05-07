@@ -2,7 +2,7 @@
 #include <iostream>
 
 Car::Car(const sf::Texture& texture, sf::Vector2f startPosition)
-	: carSprite(texture), position(startPosition), speed(4), acceleration(0), angle(3.14159),
+	: carSprite(texture), position(startPosition), speed(12), acceleration(0), angle(3.14159),
 	  alive(true), fitnessScore((rand() % 100) / 1000.0f), brain(5,8,2),
 	  nextCheckpointIndex(0), framesAlive(0) {
 
@@ -31,11 +31,9 @@ void Car::update(const TrackPhysic& physics, const std::vector<Checkpoint>& chec
 	float steering = decisions[0];
 	float throttle = decisions[1];
 
-	// Direksiyonu çevir - Her frame maksimum 0.1 radyan dönebilir
 	float turnSpeed = 0.1f;
 	angle += steering * turnSpeed;
-
-	// Gaza bas (Hızımız 1.0 ile 5.0 arasında değişsin)
+	
 	speed = 1.0f + (throttle * 4.0f);
 
 	sf::Vector2f velocity(std::cos(angle) * speed, std::sin(angle) * speed);

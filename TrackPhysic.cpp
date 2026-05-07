@@ -42,8 +42,8 @@ float TrackPhysic::getRayDistance(sf::Vector2f startPosition, float angle, float
 			trackMask.getPixel(tempVec) == sf::Color::Black) {
 			return traveledDistance;
 		}
-
-		//if it collides with nothing, return max distance
-		return maxDistance;
 	}
+	
+	//if it collides with nothing, return max distance
+	return maxDistance;
 }

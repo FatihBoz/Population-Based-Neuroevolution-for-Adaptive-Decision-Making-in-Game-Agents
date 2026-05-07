@@ -22,13 +22,13 @@ private:
     std::mt19937 rng;
 
 
-	float sigmoid(float x) {
+    float sigmoid(float x) {
         return 1.0f / (1.0f + std::exp(-x));
     }
 
     float tanh(float x) {
         return std::tanh(x);
-	}
+    }
 
 
 public:
@@ -36,4 +36,5 @@ public:
     NeuralNetwork(int inputNodes, int hiddenNodes, int outputNodes);
     std::vector<float> feedForward(const std::vector<float>& inputs);
     void mutate(float mutationRate);
+    void reseed();
 };
