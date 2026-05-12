@@ -11,6 +11,8 @@ private:
 	TrackVisual trackVisual;
 	TrackPhysic trackPhysic;
 	Simulation simulation;
+	sf::Font font;
+	sf::Text restartText;
 
 public:
 	Game();

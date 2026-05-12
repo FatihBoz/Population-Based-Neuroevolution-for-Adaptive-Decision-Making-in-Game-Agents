@@ -99,3 +99,10 @@ void Simulation::setupCheckpoints() {
     checkPoints.push_back(Checkpoint(sf::Vector2f(850, 760), sf::Vector2f(100, 200)));
     checkPoints.push_back(Checkpoint(sf::Vector2f(450, 760), sf::Vector2f(100, 200)));
 }
+
+void Simulation::restart() {
+    int currentCount = cars.size();
+    if (currentCount == 0) currentCount = 10;
+    generationCount = 1;
+    startNewGeneration(currentCount);
+}

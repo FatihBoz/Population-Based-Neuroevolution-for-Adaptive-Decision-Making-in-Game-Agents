@@ -19,5 +19,6 @@ public:
 	void drawAll(sf::RenderWindow& window);
 	void nextGeneration();
 	void setupCheckpoints();
+	void restart();
 	bool isGenerationDead();
 };
